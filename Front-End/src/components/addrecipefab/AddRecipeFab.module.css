@@ -1,0 +1,43 @@
+/* src/components/AddRecipeFab/AddRecipeFab.module.css */
+
+.fab {
+    /* 1. ESTILO DO CONTAINER (CIRCULAR) */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Torna o botão perfeitamente circular */
+    background-color: #c084fc; /* Mesma cor de destaque do Header */
+    color: white;
+    border: none;
+    
+    /* REGRAS PARA CENTRALIZAR */
+    position: fixed;
+    bottom: 100px; /* Ajuste essa altura para ele não ficar em cima do seu Footer */
+    left: 50%;
+    transform: translateX(-50%); /* Puxa o botão exatamente para o meio */
+    z-index: 100; /* Garante que ele fique por cima de tudo */
+
+    /* 3. OUTROS ESTILOS (Sombra e Cursor) */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 10px rgba(192, 132, 252, 0.4); /* Sombra suave para profundidade */
+    transition: all 0.3s ease; /* Transição suave para hover */
+}
+
+.fab:hover {
+    background-color: #8744cd; /* Cor um pouco mais escura no hover */
+    transform: translateX(-50%) scale(1.05);
+}
+/* O Active (efeito de clique/toque perfeito para o celular) */
+.fab:active {
+  /* No clique do celular, ele dá uma leve encolhida, mas continua centralizado */
+    transform: translateX(-50%) scale(0.95);
+}
+
+/* Estilo para o ícone '+' */
+.icon {
+    font-size: 30px;
+    font-weight: 300; /* Linha fina e elegante */
+    line-height: 1;
+}

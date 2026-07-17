@@ -1,0 +1,165 @@
+/* src/components/RecipeCarousel/RecipeCarousel.module.css */
+
+.carouselContainer {
+    position: relative;
+    width: 100%;
+    height: 280px; /* Altura do mural */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.card {
+    position: absolute;
+    width: 200px; /* Largura base do cartão */
+    height: 260px;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    /* Transição suave para o movimento e tamanho */
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    left: 50%;
+    margin-left: -100px; /* Exatamente metade da largura para centralizar perfeitamente */
+    background-color: #2c2c2c;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.foto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(192, 132, 252, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c084fc;
+    font-size: 2rem;
+}
+
+/* O gradiente agora cobre o topo (pro título) e a base (pros ingredientes) */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Ocupa o cartão inteiro agora */
+    background: linear-gradient(to bottom, rgba(0,0,0, 0.8) 0%, transparent 35%, transparent 60%, rgba(0,0,0, 0.9) 100%);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* A Mágica: empurra o título pro topo e a lista pra base */
+}
+
+.titulo {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.9);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left; /* Título alinhado à esquerda */
+}
+
+/* Nova DIV que empurra o bloco de ingredientes para a direita */
+.ingredientesWrapper {
+    display: flex;
+    justify-content: flex-end; /* Empurra o conteúdo para a direita */
+    width: 100%;
+    max-height: 130px; /* Altura máxima para não invadir o título */
+    overflow-y: auto; /* Adiciona barra de rolagem apenas se a lista for gigante */
+}
+
+/* Esconde a barra de rolagem feia do navegador para manter o visual limpo */
+.ingredientesWrapper::-webkit-scrollbar {
+    display: none;
+}
+.ingredientesWrapper {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* A lista em si, com texto à esquerda e bolinhas */
+.ingredientes {
+    color: #ffffff;
+    font-size: 0.85rem;
+    margin: 0;
+    padding: 0 0 0 20px; /* Recuo para a bolinha não ficar colada na borda */
+    list-style-type: disc; /* Adiciona a bolinha nativa */
+    text-align: left; /* Garante que os itens fiquem alinhados à esquerda entre si */
+    display: flex;
+    flex-direction: column;
+}
+
+.ingredientes li {
+    margin-bottom: 4px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    /* Removido o white-space: nowrap para permitir que textos longos desçam de linha naturalmente */
+}
+
+/* === POSIÇÕES DO 3D === */
+
+/* Cartão do Centro (Maior e em Destaque) */
+.centerCard {
+    transform: translateX(0) scale(1.05); /* Um pouco maior */
+    opacity: 1;
+    z-index: 3;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+/* Cartão da Esquerda (Menor e transparente) */
+.leftCard {
+    transform: translateX(-65%) scale(0.85); /* Jogado para a esquerda e encolhido */
+    opacity: 0.5;
+    z-index: 2;
+}
+
+/* Cartão da Direita (Menor e transparente) */
+.rightCard {
+    transform: translateX(65%) scale(0.85); /* Jogado para a direita e encolhido */
+    opacity: 0.5;
+    z-index: 2;
+}
+
+/* Os outros 7 cartões ficam escondidos atrás do centro */
+.hiddenCard {
+    transform: translateX(0) scale(0.5);
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none; /* Impede clique nos invisíveis */
+}
+
+/* =========================================
+    RESPONSIVIDADE PARA PC (FULL HD)
+   ========================================= */
+@media (min-width: 1024px) {
+    .carouselContainer {
+        height: 420px; /* Aumenta a altura do palco para acomodar os cartões maiores */
+        margin: 40px 0; /* Dá mais respiro na tela grande */
+    }
+
+    .card {
+        width: 650px; /* Formato horizontalzão (paisagem) */
+        height: 380px; 
+        margin-left: -325px; /* IMPORTANTE: Exatamente a metade de 650px para centralizar */
+        border-radius: 24px; /* Bordas um pouco maiores para combinar com o tamanho */
+    }
+
+    /* Aproveitamos a tela grande para aumentar a fonte também */
+    .titulo {
+        font-size: 1.8rem;
+        margin-bottom: 8px;
+    }
+
+    .ingredientes {
+        font-size: 1rem;
+    }
+}

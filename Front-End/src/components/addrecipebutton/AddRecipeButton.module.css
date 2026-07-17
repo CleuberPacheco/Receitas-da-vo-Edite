@@ -1,0 +1,34 @@
+/* src/components/AddRecipeButton/AddRecipeButton.module.css */
+
+.container {
+    display: flex;
+    justify-content: center; /* Centraliza o botão. Se quiser na direita, use flex-end */
+    width: 100%;
+}
+
+.btn {
+    background-color: #c084fc; /* Roxo padrão do seu tema */
+    color: white;
+    border: none;
+    padding: 12px 30px; /* Tamanho médio: bom respiro interno */
+    border-radius: 8px; /* Cantos arredondados, mas formato retangular */
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre o + e o texto */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    background-color: #8744cd;
+    transform: translateY(-2px); /* Efeito sutil de levantar ao passar o mouse */
+}
+
+.icon {
+    font-size: 1.5rem;
+    font-weight: normal;
+    line-height: 1;
+}

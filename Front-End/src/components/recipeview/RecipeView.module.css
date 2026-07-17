@@ -1,0 +1,139 @@
+/* src/components/RecipeView/RecipeView.module.css */
+
+.container {
+    max-width: 650px;
+    margin: 0 auto;
+    margin-top: 2rem;
+    margin-bottom: 50px; /* Dá um respiro do footer */
+    min-height: 100vh;
+    padding: 30px 20px 0px 20px; /* Mesma estrutura de padding do main */
+    background-color: transparent; /* Mantém o tema dark do App */
+    color: var(--text-body);
+    border: 2px solid #e4ae0d; /* Borda discreta para destacar a área sem quebrar o tema */
+    border-radius: 15px;
+}
+
+.backBtn {
+    background-color: transparent;
+    color: var(--text-body); /* Atualizado para cor dinâmica */
+    border: 1px solid var(--text-body); /* Atualizado para acompanhar o texto */
+    padding: 11px 25px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+}
+
+.backBtn:hover {
+    background-color: var(--cor-subcategoria);
+    color: var(--bg-body); /* Cor de fundo atual (clara ou escura) para dar contraste */
+    transform: scale(1.05);
+}
+.backBtn:active {
+    transform: scale(0.95);
+}
+
+.header {
+    margin-bottom: 30px;
+}
+
+.titulo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-body); /* Atualizado para cor dinâmica */
+    margin-bottom: 8px;
+}
+
+.subcategoria {
+    font-size: 0.9rem;
+    color: var(--cor-subcategoria); /* Atualizado para cor dinâmica */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.fotoContainer {
+    width: 100%;
+    max-width: 500px; /* Impede fotos gigantescas em telas maiores */
+    margin: 0 auto 30px auto;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.foto {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.sectionTitle {
+    font-size: 1.4rem;
+    color: var(--text-body); /* Atualizado para cor dinâmica */
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.lista {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.itemLista {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.modoPreparo {
+    /* Mantendo seus estilos normais (line-height, font-size, etc.) */
+    line-height: 1.8;
+    color: var(--text-body);
+    font-size: 1rem;
+    overflow-wrap: break-word; /* Garante que palavras muito longas quebrem a linha */
+}
+
+/* Container para alinhar os botões no topo */
+.topActions {
+    display: flex;
+    justify-content: space-between; /* Um em cada ponta */
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+/* Visual estiloso para o botão de Editar */
+.editBtn {
+    background-color: transparent;
+    color: var(--text-body); /* Atualizado para cor dinâmica */
+    border: 1px solid var(--text-body); /* Atualizado para acompanhar o texto */
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+}
+
+.editBtn:hover {
+    background-color: var(--cor-subcategoria);
+    color: var(--bg-body); /* Cor de fundo atual (clara ou escura) para dar contraste */
+    transform: scale(1.05);
+}
+
+.editBtn:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 1024px) {
+    .container {
+        margin-top: 1rem;
+    }
+}

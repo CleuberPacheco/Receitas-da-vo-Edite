@@ -1,0 +1,73 @@
+/* src/components/RecipeCard/RecipeCard.module.css */
+
+.card {
+    display: flex;
+    margin: 0 auto; /* Centraliza o card horizontalmente */
+    background-color: transparent; /* Mantém o fundo neutro do dark/light mode */
+    border: 1px solid var(--border-card); /* ATUALIZADO: Borda dinâmica com o tema */
+    border-radius: 12px;
+    overflow: hidden; /* Garante que nada saia das bordas arredondadas */
+    width: 96%;
+
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    text-decoration: none; /* Prepara para quando usarmos um Link real */
+    color: inherit;
+    box-sizing: border-box;
+}
+
+/* Feedback visual de clique (especial para PWA/Mobile) */
+.card:active {
+    background-color: var(--bg-card-active); /* ATUALIZADO: Cor do clique dinâmica */
+    transform: scale(0.98); /* Leve contração para parecer um botão físico */
+}
+
+.imageArea {
+    width: 80px; /* Tamanho fixo para a foto na lista */
+    height: 80px;
+    flex-shrink: 0; /* Impede a imagem de espremer */
+}
+
+.foto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta a imagem proporcionalmente sem distorcer */
+}
+
+/* O Placeholder (quando fotoUrl é null) */
+.placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(228, 174, 13, 0.1); /* Roxo da marca bem transparente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e4ae0d; /* Roxo vibrante para o ícone/texto */
+    font-size: 1.5rem;
+}
+
+.textArea {
+    flex: 1; /* Ocupa o resto do espaço lateral */
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza o texto verticalmente */
+    gap: 4px; /* Espaço entre subcategoria e título */
+    overflow: hidden; /* Protege contra textos muito longos */
+}
+
+.subcategoria {
+    font-size: 0.85rem;
+    color: var(--cor-subcategoria); /* ATUALIZADO: Cor dinâmica com o tema */
+    text-transform: uppercase; /* Dá um ar mais profissional de tag */
+    letter-spacing: 0.5px;
+}
+
+.titulo {
+    font-size: 1.1rem;
+    color: var(--text-body); /* Segue o tema claro ou escuro global */
+    font-weight: 600;
+    white-space: nowrap; /* Impede quebra de linha */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adiciona "..." se o nome for gigante */
+}

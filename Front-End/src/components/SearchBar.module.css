@@ -1,0 +1,41 @@
+/* src/components/SearchBar.module.css */
+.container {
+  width: 100%;
+  max-width: 600px; /* Evita que fique gigante em telas de computador */
+  margin: 0 0 0 auto; /* alinha a direita */
+  margin-right: 40px; /* Dá um respiro da borda direita */
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: 2px solid #c084fc; /* A borda com a cor da marca */
+  border-radius: 50px; /* Deixa os cantos totalmente arredondados (formato pílula) */
+  padding: 12px 10px;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Efeito de brilho quando ela clicar na barra para digitar */
+.inputWrapper:focus-within {
+  box-shadow: 0 0 12px rgba(192, 132, 252, 0.4);
+}
+
+.icon {
+  color: #e4ae0d;
+  margin-right: 12px;
+  min-width: 24px;
+}
+
+.input {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--text-body); /* Usa a cor clara do seu tema escuro! */
+  font-size: 1.2rem; /* Fonte grandinha, ótima para leitura */
+  outline: none; /* Tira aquela borda azul feia padrão do navegador */
+}
+
+.input::placeholder {
+  color: #888; /* Um cinza discreto para o texto de ajuda */
+}

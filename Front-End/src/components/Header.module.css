@@ -1,0 +1,102 @@
+.header {
+    position: fixed;
+    width: 100%;
+    background: linear-gradient(to bottom, #5e1f9c, #ab71e4);
+    border-bottom: 8px solid #e4ae0d;
+    padding: 1.1rem 4rem;
+    display: flex;
+    align-items: center;
+    
+}
+
+/* Div do Título */
+.headerLeft {
+    flex: 1; /* Faz ela ocupar o espaço disponível */
+    display: flex;
+    justify-content: flex-start; /* Alinha o título à esquerda */
+    align-items: center; /* Alinha verticalmente o título e a logo */
+}
+
+/* Div dos Botões */
+.headerRight {
+    display: flex;
+    align-items: center;
+    gap: 50px; /* Mantemos o gap ou aumentamos para 20px se preferir [cite: 1] */
+    flex-grow: 1; /* ADICIONAMOS flex-grow: 1 para que o container pai possa crescer [cite: 1] */
+    justify-content: flex-end; /* ALINHA OS BOTÕES À DIREITA [cite: 1] */
+}
+
+.titulo {
+    color: white;
+    justify-content: start; 
+    font-size: 1.8rem;
+    text-transform: uppercase;
+
+}
+
+.logo {
+    height: 100px; /* Aumente o valor até achar o tamanho ideal */
+
+    /* O Truque da Margem Negativa */
+    margin-top: -1rem;    /* Puxa a imagem para cima, anulando o padding top */
+    margin-bottom: -1.8rem; /* Puxa a imagem para baixo, anulando o padding bottom */
+    margin-left: -1rem;   /* Puxa para a esquerda (ajuste se quiser colar mais na borda) */
+    margin-right: 15px;   /* Mantém o respiro entre a vovó e o título */
+}
+
+.navLink {
+    color: white; /* ou a cor que você preferir */
+    text-decoration: none; /* Isso tira o sublinhado feio */
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase; /* Deixa os links em maiúsculas para combinar com o título */
+    padding: 0 2rem; /* Dá um pouco de espaço para clicar e um visual mais agradável */
+}
+
+.navLink:hover {
+  color: #000000; /* Efeito hover para dar um charme */
+}
+.navLink.active {
+  color: #e4ae0d; /* Cor para o link ativo */
+}
+
+/* =========================================
+    RESPONSIVIDADE PARA CELULARES E TABLETS
+   ========================================= */
+@media (max-width: 768px) {
+
+    .header {
+    background: linear-gradient(to bottom, #5e1f9c, #ab71e4);
+    padding: 1.1rem 2rem;
+    display: flex;
+    align-items: center;/* Agora não usamos space-between, pois controlaremos pelas divs */
+    color: white;
+    border-bottom: 8px solid #e4ae0d;
+    }
+
+    .logo {
+    height: 80px; /* Reduz o tamanho da logo para telas menores */
+        /* O Truque da Margem Negativa */
+    margin-top: -0.5rem;    /* Puxa a imagem para cima, anulando o padding top */
+    margin-bottom: -1.8rem; /* Puxa a imagem para baixo, anulando o padding bottom */
+    margin-left: -1rem;   /* Puxa para a esquerda (ajuste se quiser colar mais na borda) */
+    margin-right: 15px;   /* Mantém o respiro entre a vovó e o título */
+    }
+
+    .titulo{
+        display: none; /* Esconde o título em telas menores */
+    }
+
+    .headerRight {
+    flex: 1; /* Faz ela ocupar o outro lado */
+    display: flex;
+    justify-content: flex-end; /* Alinha os botões à direita */
+    gap: 5px; /* Espaçamento entre botões */
+    }
+
+    .headerLeft {
+    display: flex;
+    justify-content: flex-start; /* Alinha o título à esquerda */
+    align-items: center; /* Alinha verticalmente o título e a logo */
+    }
+}

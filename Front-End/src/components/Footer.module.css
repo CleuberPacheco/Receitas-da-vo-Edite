@@ -1,0 +1,102 @@
+.footer {
+    position: relative;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background: linear-gradient(to bottom, #5e1f9c, #ab71e4);
+    border-top: 8px solid #e4ae0d;
+    padding: 15px 0;
+
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    
+    /* Estilos visuais baseados em image_29.png/image_30.png */
+
+    padding: 20px;
+    text-align: center;
+
+    z-index: 10;
+    }
+
+/* src/components/Footer/Footer.module.css */
+/* (Mantenha todo o seu CSS anterior do .footer intacto) */
+
+/* --- BOTÃO DESLIZANTE DE TEMA --- */
+
+.toggleContainer {
+    position: relative;
+    width: 76px;
+    height: 38px;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    transition: background-color 0.4s ease;
+    outline: none; /* Remove a borda azul padrão do navegador ao clicar */
+    margin:auto;
+}
+
+/* Fundo Escuro (Noite) */
+.toggleContainer.dark {
+    background-color: #2c2c2c;
+    margin:auto;
+}
+
+/* Fundo Claro (Dia) */
+.toggleContainer.light {
+    background-color: #e6e6e6;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra interna para profundidade */
+}
+
+/* Ícones de Sol e Lua que ficam no fundo do botão */
+.iconSun, .iconMoon {
+    font-size: 16px;
+    z-index: 1;
+    line-height: 1;
+    user-select: none;
+    
+}
+
+/* A bolinha que desliza por cima */
+.slider {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    /* Animação suave tanto para o movimento quanto para a cor */
+    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), background-color 0.4s ease;
+    z-index: 2;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    
+}
+
+/* Posição Escuro (Bolinha Branca na Esquerda) */
+.toggleContainer.dark .slider {
+    background-color: #ffffff;
+    transform: translateX(0);
+    
+}
+
+/* Posição Claro (Bolinha Escura na Direita tapando a lua) */
+.toggleContainer.light .slider {
+    background-color: #2c2c2c;
+    transform: translateX(38px); /* Distância exata para parar no canto direito */
+
+}
+.copyright{
+    margin:auto;
+    color: white;
+}
+
+@media (max-width: 1024px) {
+    .footer {
+    position: fixed;
+    }
+}

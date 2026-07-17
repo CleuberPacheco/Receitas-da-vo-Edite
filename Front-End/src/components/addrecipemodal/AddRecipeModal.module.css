@@ -1,0 +1,156 @@
+/* src/components/AddRecipeModal/AddRecipeModal.module.css */
+
+/* O fundo escuro transparente que cobre tudo */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2000; /* Tem que ser altíssimo para ficar em cima do Header e Footer */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Alinha a caixinha na base da tela */
+}
+
+/* A janela do modal em si */
+.modalContent {
+    background-color: #1a1a1a;
+    width: 100%;
+    max-width: 600px;
+    height: 85vh; /* Ocupa 85% da tela */
+    border-radius: 24px 24px 0 0; /* Arredonda só em cima */
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.3s ease-out; /* Animação de entrada */
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.closeButton {
+    background: transparent;
+    border: none;
+    color: #c084fc;
+    font-size: 1.5rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 1;
+    overflow-y: auto; /* Permite rolar se a tela for pequena */
+}
+
+.input, .textarea {
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    background-color: #0d1117;
+    color: white;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.input:focus, .textarea:focus {
+    outline: none;
+    border-color: #c084fc;
+}
+
+.submitBtn {
+    background-color: #c084fc;
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: auto; /* Empurra o botão para o fundo */
+    transition: background-color 0.2s;
+}
+
+.submitBtn:hover {
+    background-color: #8744cd;
+}
+/* --- ESTILOS DO NOVO CAMPO DE FOTO --- */
+
+/* --- ESTILOS DO CAMPO DE FOTO --- */
+
+/* --- ESTILOS DO CAMPO DE FOTO --- */
+
+.fotoUploadContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+/* 1. ESCONDE O BOTÃO PADRÃO FEIO À FORÇA */
+.fileInput {
+    display: none 
+}
+
+/* 2. ESTILIZA A LABEL PARA PARECER UM BOTÃO ROXO IDÊNTICO AO DE SALVAR */
+.fotoBtn {
+    background-color: #c084fc; 
+    color: white; 
+    border: none;
+    padding: 16px; 
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 10px;
+    transition: background-color 0.2s;
+    /* Removemos qualquer estilo transparente ou tracejado antigo */
+}
+
+.fotoBtn:hover {
+    background-color: #8744cd; 
+}
+/* src/components/AddRecipeModal/AddRecipeModal.module.css */
+
+.fotoPreview {
+    width: 100%;
+    
+    /* 1. REMOVA a linha 'height: 200px;' se ela estiver aí */
+    
+    /* 2. ADICIONE a proporção horizontal (Aspect Ratio) */
+    aspect-ratio: 16 / 9; /* Formato de tela de cinema/YouTube (retângulo deitado) */
+    /* Dica: Se achar muito esticado, pode tentar 'aspect-ratio: 4 / 3;' */
+
+    border-radius: 12px;
+    
+    /* O object-fit: cover agora vai preencher esse retângulo horizontal 
+        cortando automaticamente o que sobrar em cima e embaixo! */
+    object-fit: cover; 
+    
+    border: 2px solid #333;
+}

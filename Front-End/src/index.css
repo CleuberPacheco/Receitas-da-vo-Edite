@@ -1,0 +1,60 @@
+/* 1. Reset Global - Limpa tudo o que o navegador tenta impor */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 2. Remove o comportamento automático de tema (o cinza nos botões) */
+:root {
+  --bg-body: #f9f9f9;  /* Um cinza bem clarinho/gelo para o fundo */
+  --text-body: #111111; /* Texto quase preto para contraste */
+  
+  /* NOVAS VARIÁVEIS PARA O MODO CLARO */
+  --cor-subcategoria: #7e22ce; /* Roxo escuro, excelente contraste no branco */
+  --border-card: rgba(0, 0, 0, 0.1); /* Borda mais escura para marcar o card */
+  --bg-card-active: rgba(0, 0, 0, 0.05); /* Escurece levemente no clique */
+}
+
+.dark {
+  --bg-body: #111111;  /* Fundo escuro */
+  --text-body: #f3f4f6; /* Texto claro */
+  
+  /* NOVAS VARIÁVEIS PARA O MODO ESCURO */
+  --cor-subcategoria: #c084fc; /* Lilás clarinho, excelente contraste no preto */
+  --border-card: rgba(255, 255, 255, 0.38); /* Borda clara para marcar o card */
+  --bg-card-active: rgba(255, 255, 255, 0.05); /* Clareia levemente no clique */
+}
+
+/* 3. Base do App */
+body {
+  font-family: sans-serif;
+}
+
+/* 4. O seu container principal passa a ser o responsável pelas cores */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  background-color: var(--bg-body);
+  color: var(--text-body);
+  min-height: 100vh; /* Muito importante para a cor preencher a tela toda */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 5. O seu Root agora é apenas o container de layout */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 6. Garante que qualquer botão no app venha "limpo" */
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
